@@ -25,7 +25,7 @@ export const CatList = () => {
         isSearch: true
       });
       return;
-    }
+    } 
     handleListCart({
       page,
       setItems,
