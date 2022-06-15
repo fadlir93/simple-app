@@ -9,6 +9,7 @@ import DashboardApp from './pages/DashboardApp';
 import Products from './pages/Products';
 import Blog from './pages/Blog';
 import User from './pages/User';
+import { CatList } from './pages/cat/cat-list/cat-list-page';
 import NotFound from './pages/Page404';
 
 // ----------------------------------------------------------------------
@@ -21,6 +22,7 @@ export default function Router() {
       children: [
         { element: <Navigate to="/dashboard/app" replace /> },
         { path: 'app', element: <DashboardApp /> },
+        { path: 'cat', element: <CatList /> },
         { path: 'user', element: <User /> },
         { path: 'products', element: <Products /> },
         { path: 'blog', element: <Blog /> }

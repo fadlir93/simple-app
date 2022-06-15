@@ -5,7 +5,7 @@ import { alpha, styled } from '@mui/material/styles';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('span')(({ theme, ownerState }) => {
-  const { color, variant } = ownerState;
+  const { color, variant, fontSize } = ownerState;
 
   const styleFilled = (color) => ({
     color: theme.palette[color].contrastText,
@@ -33,9 +33,9 @@ const RootStyle = styled('span')(({ theme, ownerState }) => {
     whiteSpace: 'nowrap',
     display: 'inline-flex',
     justifyContent: 'center',
-    padding: theme.spacing(0, 1),
+    padding: theme.spacing(2, 1),
     color: theme.palette.grey[800],
-    fontSize: theme.typography.pxToRem(12),
+    fontSize: theme.typography.pxToRem(fontSize || 12),
     fontFamily: theme.typography.fontFamily,
     backgroundColor: theme.palette.grey[300],
     fontWeight: theme.typography.fontWeightBold,
@@ -62,9 +62,15 @@ const RootStyle = styled('span')(({ theme, ownerState }) => {
 
 // ----------------------------------------------------------------------
 
-export default function Label({ color = 'default', variant = 'ghost', children, ...other }) {
+export default function Label({
+  fontSize = 12,
+  color = 'default',
+  variant = 'ghost',
+  children,
+  ...other
+}) {
   return (
-    <RootStyle ownerState={{ color, variant }} {...other}>
+    <RootStyle ownerState={{ color, variant, fontSize }} {...other}>
       {children}
     </RootStyle>
   );
